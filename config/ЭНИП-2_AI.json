@@ -1,0 +1,23 @@
+{
+  "analog": {
+    "apparatus": [
+      {
+        "apparatus_type": "ЭНИП-2",
+        "default_signals": [
+          {
+            "signal_name": "Активная мощность Pсум",
+            "unit": "МВт",
+            "level": "-",
+            "signal_capture_location": "РУ 0,4 кВ Ввод №1"
+          },
+          {
+            "signal_name": "Реактивная мощность Qсум",
+            "unit": "Мвар",
+            "level": "-",
+            "signal_capture_location": "РУ 0,4 кВ Ввод №1"
+          }
+        ]
+      }
+    ]
+  }
+}

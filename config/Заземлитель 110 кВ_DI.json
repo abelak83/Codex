@@ -1,0 +1,53 @@
+{
+  "discrete": {
+    "apparatus": [
+      {
+        "apparatus_type": "Заземлитель 110 кВ",
+        "default_signals": [
+          {
+            "signal_name": "Включен",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Отключен",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Управление местное",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Неисправность питания привода",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Неисправность обогрева привода",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Неисправность цепей управления",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          }
+        ]
+      }
+    ]
+  }
+}

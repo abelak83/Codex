@@ -1,0 +1,18 @@
+{
+  "discrete": {
+    "apparatus": [
+      {
+        "apparatus_type": "Ключ SAC1",
+        "default_signals": [
+          {
+            "signal_name": "Местное управление ВЭ и ЗН",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          }
+        ]
+      }
+    ]
+  }
+}

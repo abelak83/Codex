@@ -1,0 +1,32 @@
+{
+  "DO": {
+    "apparatus": [
+      {
+        "apparatus_type": "Заземлитель 110 кВ",
+        "default_signals": [
+          {
+            "signal_name": "Включить",
+            "signal_type": "ТУ",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Отключить",
+            "signal_type": "ТУ",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Разрешить управление",
+            "signal_type": "ТУ",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф привода разъединителя ПД-14",
+            "signal_registration_device": ""
+          }
+        ]
+      }
+    ]
+  }
+}

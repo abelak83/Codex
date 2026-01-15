@@ -1,0 +1,25 @@
+{
+  "discrete": {
+    "apparatus": [
+      {
+        "apparatus_type": "ЗНЛ 6",
+        "default_signals": [
+          {
+            "signal_name": "ЗН включен",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "ЗН отключен",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          }
+        ]
+      }
+    ]
+  }
+}

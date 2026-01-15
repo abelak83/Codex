@@ -1,0 +1,71 @@
+{
+  "analog": {
+    "apparatus": [
+      {
+        "apparatus_type": "ТТ",
+        "default_signals": [
+          {
+            "signal_name": "Ток Ia",
+            "unit": "А",
+            "level": "0-5",
+            "signal_capture_location": "ТТ 110 СВ"
+          },
+          {
+            "signal_name": "Ток Ib",
+            "unit": "А",
+            "level": "0-5",
+            "signal_capture_location": "ТТ 110 СВ"
+          },
+          {
+            "signal_name": "Ток Ic",
+            "unit": "А",
+            "level": "0-5",
+            "signal_capture_location": "ТТ 110 СВ"
+          },
+          {
+            "signal_name": "Активная мощность Pсум",
+            "unit": "МВт",
+            "level": "-",
+            "signal_capture_location": "ТТ 110 СВ"
+          },
+          {
+            "signal_name": "Реактивная мощность Qсум",
+            "unit": "МВар",
+            "level": "-",
+            "signal_capture_location": "ТТ 110 СВ"
+          },
+          {
+            "signal_name": "Полная мощность Sсум",
+            "unit": "МВА",
+            "level": "-",
+            "signal_capture_location": "ТТ 110 СВ"
+          },
+          {
+            "signal_name": "Положение анцапф РПН",
+            "unit": "ступень",
+            "level": "-9…0…9",
+            "signal_capture_location": "ТТ 110 Т-1 110 кВ"
+          },
+          {
+            "signal_name": "Ток Ia",
+            "unit": "А",
+            "level": "0-5 А",
+            "signal_capture_location": "РУ 0,4 кВ Ввод №1"
+          },
+          {
+            "signal_name": "Ток Ib",
+            "unit": "А",
+            "level": "0-5 А",
+            "signal_capture_location": "РУ 0,4 кВ Ввод №1"
+          },
+          {
+            "signal_name": "Ток Ic",
+            "unit": "А",
+            "level": "0-5 А",
+            "signal_capture_location": "РУ 0,4 кВ Ввод №1"
+          }
+        ]
+      }
+    ]
+  }
+}

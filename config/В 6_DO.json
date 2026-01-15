@@ -1,0 +1,25 @@
+{
+  "DO": {
+    "apparatus": [
+      {
+        "apparatus_type": "В 6",
+        "default_signals": [
+          {
+            "signal_name": "Включить",
+            "signal_type": "ТУ",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 10. Релейный отсек",
+            "signal_registration_device": "ЭНМВ-1"
+          },
+          {
+            "signal_name": "Отключить",
+            "signal_type": "ТУ",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 10. Релейный отсек",
+            "signal_registration_device": "ЭНМВ-1"
+          }
+        ]
+      }
+    ]
+  }
+}

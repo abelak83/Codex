@@ -1,0 +1,18 @@
+{
+  "DO": {
+    "apparatus": [
+      {
+        "apparatus_type": "РЗА В 6",
+        "default_signals": [
+          {
+            "signal_name": "Квитировать",
+            "signal_type": "ТУ",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 10. Релейный отсек",
+            "signal_registration_device": "Сервер АСУ ТП"
+          }
+        ]
+      }
+    ]
+  }
+}

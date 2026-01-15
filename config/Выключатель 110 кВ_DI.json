@@ -1,0 +1,53 @@
+{
+  "discrete": {
+    "apparatus": [
+      {
+        "apparatus_type": "Выключатель 110 кВ",
+        "default_signals": [
+          {
+            "signal_name": "Включен",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф зажимов выключателя",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Отключен",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф зажимов выключателя",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Местное управление",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф зажимов выключателя",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Неисправность обогрева привода",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф зажимов выключателя",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Неисправность оперативного тока",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф зажимов выключателя",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Низкое давление элегаза",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ОРУ-110 кВ. Шкаф зажимов выключателя",
+            "signal_registration_device": ""
+          }
+        ]
+      }
+    ]
+  }
+}

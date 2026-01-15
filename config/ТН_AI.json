@@ -1,0 +1,53 @@
+{
+  "analog": {
+    "apparatus": [
+      {
+        "apparatus_type": "ТН",
+        "default_signals": [
+          {
+            "signal_name": "Напряжение Uab",
+            "unit": "В",
+            "level": "0-100",
+            "signal_capture_location": "ТН-1 110 кВ"
+          },
+          {
+            "signal_name": "Напряжение Ubc",
+            "unit": "В",
+            "level": "0-100",
+            "signal_capture_location": "ТН-1 110 кВ"
+          },
+          {
+            "signal_name": "Напряжение Uac",
+            "unit": "В",
+            "level": "0-100",
+            "signal_capture_location": "ТН-1 110 кВ"
+          },
+          {
+            "signal_name": "Частота F",
+            "unit": "Гц",
+            "level": "50,0±0,2",
+            "signal_capture_location": "ТН-1 110 кВ"
+          },
+          {
+            "signal_name": "Напряжение Uab",
+            "unit": "кВ",
+            "level": "0-100 В",
+            "signal_capture_location": "РУ 0,4 кВ Ввод №1"
+          },
+          {
+            "signal_name": "Напряжение Ubc",
+            "unit": "кВ",
+            "level": "0-100 В",
+            "signal_capture_location": "РУ 0,4 кВ Ввод №1"
+          },
+          {
+            "signal_name": "Напряжение Uca",
+            "unit": "кВ",
+            "level": "0-100 В",
+            "signal_capture_location": "РУ 0,4 кВ Ввод №1"
+          }
+        ]
+      }
+    ]
+  }
+}

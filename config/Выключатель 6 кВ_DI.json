@@ -1,0 +1,18 @@
+{
+  "discrete": {
+    "apparatus": [
+      {
+        "apparatus_type": "Выключатель 6 кВ",
+        "default_signals": [
+          {
+            "signal_name": "Выключатель включен",
+            "signal_type": "ТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          }
+        ]
+      }
+    ]
+  }
+}

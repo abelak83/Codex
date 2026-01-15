@@ -1,0 +1,53 @@
+{
+  "discrete": {
+    "apparatus": [
+      {
+        "apparatus_type": "РЗА В 6",
+        "default_signals": [
+          {
+            "signal_name": "Аварийная сигнализация",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Неисправность РЗА",
+            "signal_type": "АПТС",
+            "signal_characteristic": "ЗСК (=220В)",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Срабатывание ЗОЗЗ",
+            "signal_type": "АПТС",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Срабатывание МТЗ",
+            "signal_type": "АПТС",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Срабатывание ЗП",
+            "signal_type": "АПТС",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          },
+          {
+            "signal_name": "Срабатывание УРОВ",
+            "signal_type": "АПТС",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ЗРУ-6 кВ яч. 7. Релейный отсек",
+            "signal_registration_device": ""
+          }
+        ]
+      }
+    ]
+  }
+}

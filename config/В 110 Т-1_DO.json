@@ -1,0 +1,25 @@
+{
+  "DO": {
+    "apparatus": [
+      {
+        "apparatus_type": "В 110 Т-1",
+        "default_signals": [
+          {
+            "signal_name": "Включить",
+            "signal_type": "ТУ",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ОПУ. P6. Защиты, АУВ В 110 и АРНТ Т-1",
+            "signal_registration_device": "Сервер АСУ ТП"
+          },
+          {
+            "signal_name": "Отключить",
+            "signal_type": "ТУ",
+            "signal_characteristic": "Цифровой МЭК 61850-8-1",
+            "signal_capture_location": "ОПУ. P6. Защиты, АУВ В 110 и АРНТ Т-1",
+            "signal_registration_device": "Сервер АСУ ТП"
+          }
+        ]
+      }
+    ]
+  }
+}
