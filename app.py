@@ -179,7 +179,7 @@ def di_signals_for_apparatus(
         )
     if connection.voltage_class < 35:
         base.append(("Неисправность РЗА", "АПТС", "РЗА"))
-        if connection.connection_type != "ТН":
+        if connection.connection_type != "ТН" and apparatus_name.startswith("В"):
             base.append(("Аварийное отключение", "АПТС", apparatus_name))
         if connection.connection_type == "ТН":
             base.extend(
@@ -375,6 +375,13 @@ def ensure_session_state() -> None:
         st.session_state.project = Project()
 
 
+def rerun() -> None:
+    if hasattr(st, "rerun"):
+        st.rerun()
+    else:
+        st.experimental_rerun()
+
+
 st.set_page_config(page_title="Перечень сигналов АСУ ТП", layout="wide")
 ensure_session_state()
 
@@ -420,18 +427,18 @@ for idx, connection in enumerate(st.session_state.project.connections):
             if st.button("⬆️", key=f"up_{idx}", help="Переместить вверх") and idx > 0:
                 connections = st.session_state.project.connections
                 connections[idx - 1], connections[idx] = connections[idx], connections[idx - 1]
-                st.experimental_rerun()
+                rerun()
         with action_cols[1]:
             if st.button("⬇️", key=f"down_{idx}", help="Переместить вниз") and idx < len(
                 st.session_state.project.connections
             ) - 1:
                 connections = st.session_state.project.connections
                 connections[idx + 1], connections[idx] = connections[idx], connections[idx + 1]
-                st.experimental_rerun()
+                rerun()
         with action_cols[2]:
             if st.button("Удалить присоединение", key=f"delete_{idx}"):
                 st.session_state.project.connections.pop(idx)
-                st.experimental_rerun()
+                rerun()
         cols = st.columns(3)
         with cols[0]:
             connection.name = st.text_input(
