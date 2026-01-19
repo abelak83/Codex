@@ -72,16 +72,6 @@ def list_connection_types(voltage_class: int) -> List[str]:
     return HV_TYPES if voltage_class >= 35 else LV_TYPES
 
 
-def format_apparatus_summary(apparatus_counts: Dict[str, int]) -> str:
-    if not apparatus_counts:
-        return "КА: нет"
-    parts = []
-    for name, count in apparatus_counts.items():
-        if count > 0:
-            parts.append(f"{name}×{count}")
-    return "КА: нет" if not parts else "КА: " + ", ".join(parts)
-
-
 def normalize_apparatus_counts(
     connection_type: str,
     voltage_class: int,
@@ -175,15 +165,18 @@ def di_signals_for_apparatus(
         base = [
             ("Рабочее положение ВЭ", "ТС", apparatus_name),
             ("Контрольное положение ВЭ", "ТС", apparatus_name),
-            ("Управление местное", "ТС", apparatus_name),
         ]
     else:
         base = [
             ("Включен", "ТС", apparatus_name),
             ("Отключен", "ТС", apparatus_name),
-            ("Управление местное", "ТС", apparatus_name),
             ("Неисправность привода", "АПТС", apparatus_name),
         ]
+    if connection.voltage_class >= 35:
+        base.insert(
+            2,
+            ("Управление местное", "ТС", apparatus_name),
+        )
     if connection.voltage_class < 35:
         base.append(("Неисправность РЗА", "АПТС", "РЗА"))
         if connection.connection_type != "ТН":
@@ -207,6 +200,18 @@ def di_do_place(connection: Connection, apparatus_name: str) -> str:
 def di_rows(connection: Connection, apparatus_counts: Dict[str, int]) -> List[Dict[str, str]]:
     rows: List[Dict[str, str]] = []
     apparatus_list = apparatus_instances(apparatus_counts)
+    if connection.voltage_class < 35:
+        rows.append(
+            {
+                "Наименование присоединения": connection.name,
+                "Наименование аппарата": "Ключ МУ/ДУ",
+                "Наименование сигнала": "Управление местное",
+                "Тип сигнала": "ТС",
+                "Хар-ка сигнала": "ЗСК =24 В",
+                "Место съема сигнала": di_do_place(connection, "Ключ МУ/ДУ"),
+                "Устройство регистрации сигнала": "",
+            }
+        )
     for apparatus_name in apparatus_list:
         for signal_name, signal_type, apparatus_label in di_signals_for_apparatus(
             connection,
@@ -291,6 +296,28 @@ def export_excel(project: Project, ai_templates: Dict[str, List[str]]) -> bytes:
         ai_data.extend(ai_rows(connection, ai_templates))
         di_data.extend(di_rows(connection, normalized_counts))
         do_data.extend(do_rows(connection, normalized_counts))
+    ai_data.extend(
+        [
+            {
+                "Наименование присоединения": "Общестанционный",
+                "Наименование сигнала": "Температура ОРУ",
+                "Тип сигнала": "ТИТ",
+                "Ед. измер.": "°C",
+                "Уровень сигнала": "-50...+70",
+                "Место съема сигнала": "",
+                "Устройство регистрации сигнала": "",
+            },
+            {
+                "Наименование присоединения": "Общестанционный",
+                "Наименование сигнала": "Температура в ОПУ",
+                "Тип сигнала": "ТИТ",
+                "Ед. измер.": "°C",
+                "Уровень сигнала": "-50...+70",
+                "Место съема сигнала": "",
+                "Устройство регистрации сигнала": "",
+            },
+        ]
+    )
 
     ai_df = pd.DataFrame(ai_data)
     di_df = pd.DataFrame(di_data)
@@ -328,12 +355,19 @@ def calculate_signal_counts(
         ai_total += len(ai_rows(connection, ai_templates))
         di_total += len(di_rows(connection, normalized_counts))
         do_total += len(do_rows(connection, normalized_counts))
+    ai_total += 2
     return {
         "AI": ai_total,
         "DI": di_total,
         "DO": do_total,
         "TOTAL": ai_total + di_total + do_total,
     }
+
+
+def sort_connections_by_voltage(connections: List[Connection]) -> List[Connection]:
+    indexed = list(enumerate(connections))
+    indexed.sort(key=lambda item: (-item[1].voltage_class, item[0]))
+    return [item[1] for item in indexed]
 
 
 def ensure_session_state() -> None:
@@ -375,9 +409,29 @@ if uploaded_file is not None:
 st.subheader("Присоединения")
 if st.button("Добавить присоединение"):
     st.session_state.project.connections.append(Connection())
+    st.session_state.project.connections = sort_connections_by_voltage(
+        st.session_state.project.connections
+    )
 
 for idx, connection in enumerate(st.session_state.project.connections):
     with st.expander(f"Присоединение {idx + 1}: {connection.name or 'без имени'}", expanded=True):
+        action_cols = st.columns(3)
+        with action_cols[0]:
+            if st.button("⬆️", key=f"up_{idx}", help="Переместить вверх") and idx > 0:
+                connections = st.session_state.project.connections
+                connections[idx - 1], connections[idx] = connections[idx], connections[idx - 1]
+                st.experimental_rerun()
+        with action_cols[1]:
+            if st.button("⬇️", key=f"down_{idx}", help="Переместить вниз") and idx < len(
+                st.session_state.project.connections
+            ) - 1:
+                connections = st.session_state.project.connections
+                connections[idx + 1], connections[idx] = connections[idx], connections[idx + 1]
+                st.experimental_rerun()
+        with action_cols[2]:
+            if st.button("Удалить присоединение", key=f"delete_{idx}"):
+                st.session_state.project.connections.pop(idx)
+                st.experimental_rerun()
         cols = st.columns(3)
         with cols[0]:
             connection.name = st.text_input(
@@ -426,10 +480,6 @@ for idx, connection in enumerate(st.session_state.project.connections):
                     )
             else:
                 st.warning("Для выбранного типа нет шаблона КА.")
-
-        if st.button("Удалить присоединение", key=f"delete_{idx}"):
-            st.session_state.project.connections.pop(idx)
-            st.experimental_rerun()
 
 st.subheader("Проверки")
 errors, warnings = validate_project(
